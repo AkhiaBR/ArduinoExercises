@@ -1,0 +1,36 @@
+const int led1 = 8;
+const int led2 = 9;
+const int led3 = 10;
+char led;
+
+void setup() {
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+
+  digitalWrite(led1, LOW);
+  digitalWrite(led2, LOW);
+  digitalWrite(led3, LOW);
+
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (Serial.available()) {
+    led = Serial.read();
+    if (led == 'R') {
+      digitalWrite(led1, HIGH);
+    }
+    if (led == 'B') {
+      digitalWrite(led2, HIGH);
+    }
+    if (led == 'G') {
+      digitalWrite(led3, HIGH);
+    }
+    if (led == 'X') {
+      digitalWrite(led1, LOW);
+      digitalWrite(led2, LOW);
+      digitalWrite(led3, LOW);
+    }
+    }
+  }
