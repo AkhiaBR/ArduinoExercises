@@ -1,0 +1,40 @@
+const int pinBotao1 = 2;
+const int pinBotao2 = 3;
+const int led1 = 8;
+const int led2 = 9;
+const int led3 = 10;
+bool botao1 = false;
+bool botao2 = false;
+
+void setup() {
+  pinMode(pinBotao1, INPUT);
+  pinMode(pinBotao2, INPUT);
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  botao1 = digitalRead(pinBotao1);
+  botao2 = digitalRead(pinBotao2);
+
+  if(botao1 && botao2){
+    digitalWrite(led1, HIGH);
+  }
+  else{
+    digitalWrite(led1, LOW);
+  }
+  if(botao1 || botao2){
+    digitalWrite(led2, HIGH);
+  }
+  else{
+    digitalWrite(led2, LOW);
+  }
+  if(botao1 ^ botao2){
+    digitalWrite(led3, HIGH);
+  }
+  else{
+    digitalWrite(led3, LOW);
+  }
+}
