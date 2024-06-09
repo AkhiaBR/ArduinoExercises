@@ -1,0 +1,27 @@
+//Resume os valores dos pinos em variáveis
+const int pinLed = 13;
+const long intervalo = 1000; 
+//Long é utilizado para armazenar dados de maior quantidade informacional
+unsigned long tempoAnt = 0;
+bool estado = 0;
+
+//Define o que vai ser OUTPUT ou INPUT, neste caso, somente OUTPUT
+void setup() {
+  pinMode(pinLed, OUTPUT);
+}
+
+void loop() {
+  //Se o tempo atual (millis que está contando desde o início do programa) diminuído pelo tempo anterior (igual a 0) for maior ou igual ao intervalo, o tempo anterior será o atual 
+  unsigned long tempoAtual = millis(); //O ('millis()') deve ser posicionado no início do ('void loop()') para que seja reiniciado toda vez que o loop recomeçar
+  if(tempoAtual - tempoAnt >= intervalo){
+    tempoAnt = tempoAtual;
+    if(estado == 0){
+      estado = 1;
+    }
+    else{
+      estado = 0;
+    }
+  }
+  digitalWrite(pinLed, estado);
+  
+}
