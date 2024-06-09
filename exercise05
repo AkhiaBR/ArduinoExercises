@@ -1,3 +1,4 @@
+//Define dois botões como variáveis bool, quando pressionados ao mesmo tempo, ligam o 'led1', quando qualquer um dos botões for pressionado, ligam o 'led2', e quando os valores booleanos dos dois botões forem diferentes, ligam o 'led3'.
 const int pinBotao1 = 2;
 const int pinBotao2 = 3;
 const int led1 = 8;
