@@ -1,3 +1,4 @@
+//Liga um LED de cada vez por 0,2 segundos, desligando todos por 0,5 segundos.
 void setup() {
   pinMode(8, OUTPUT);
   pinMode(9, OUTPUT);
