@@ -1,3 +1,4 @@
+//Liga os LEDs de acordo com a tecla pressionada, desligando todos se a tecla pressionada for 'X'
 const int led1 = 8;
 const int led2 = 9;
 const int led3 = 10;
