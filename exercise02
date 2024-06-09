@@ -1,3 +1,4 @@
+//Liga e desliga três LEDs sequencialmente por um segundo. 
 void setup() {
   pinMode(8, OUTPUT);
   pinMode(9, OUTPUT);
