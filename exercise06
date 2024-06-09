@@ -1,0 +1,47 @@
+//Inicializa o Serial que mostra os valores ('soma') de acordo com o botões clicados
+const int pinBotao1 = 2;
+const int pinBotao2 = 3;
+const int pinLed1 = 8;
+const int pinLed2 = 9;
+const int pinLed3 = 10;
+bool botao1 = false;
+bool botao2 = false;
+bool botao1Press = 0;
+bool botao2Press = 0;
+int soma = 0;
+
+void setup() {
+  pinMode(pinBotao1, INPUT);
+  pinMode(pinBotao2, INPUT);
+  pinMode(pinLed1, OUTPUT);
+  pinMode(pinLed2, OUTPUT);
+  pinMode(pinLed3, OUTPUT);
+  Serial.begin(9600);
+}
+ 
+void loop() {
+  botao1 = digitalRead(pinBotao1);
+  botao2 = digitalRead(pinBotao2);
+
+  if(botao1 == 1){
+    if(botao1Press == 0){
+      botao1Press = 1;
+      soma++;
+      Serial.println("Soma: ");
+      Serial.println(soma);
+    }
+  }
+  else{
+  botao1Press = 0;
+  }
+  if(botao2 == 1){
+    if(botao2Press == 0){
+      botao2Press = 1;
+      soma--;
+      Serial.println("Subtração: ");
+      Serial.println(soma);
+    }
+  }
+  else{
+  botao2Press = 0;
+}
