@@ -1,0 +1,43 @@
+//Curso Técnico de Informática SATC - Sistemas Embarcados
+//Aluno: Fernando Gonçalves
+//Programa de acender LEDs utilizando botões por meio do ('millis()')
+//-------------------------------------------------------------
+
+//Define as variáveis referentes aos valores dos pinos.
+const int botaoUp = 2;
+const int botaoDown = 3;
+const int led1 = 8;
+const int led2 = 9;
+//Define as variáveis auxiliares
+bool estado = 0;
+unsigned long tempoAnt = 0;
+
+void setup() {
+  //Define quais pinos vão ser INPUTs ou OUTPUTs.
+  pinMode(botaoUp, INPUT);
+  pinMode(botaoDown, INPUT);
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+}
+
+void loop() {
+  //Define as variáveis booleans referente aos pinos dos dois botões:
+  bool up = digitalRead(botaoUp);
+  bool down = digitalRead(botaoDown);
+  if(up == 1){
+    digitalWrite(led1, 1);
+    estado = 1;
+    tempoAnt = millis();
+  }
+  if(estado == 1){
+    unsigned long tempoAtual = millis();
+    if(tempoAtual - tempoAnt >= 1000){
+      digitalWrite(led2, 1);
+    }
+  }
+  if(down == 1){
+    digitalWrite(led1, 0);
+    digitalWrite(led2, 0);
+    estado = 0;
+  }
+}
